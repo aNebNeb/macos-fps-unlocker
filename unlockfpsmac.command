@@ -143,4 +143,5 @@ echo '{"DFIntTaskSchedulerTargetFps":"100067","FFlagTaskSchedulerLimitTargetFpsT
 
 
 
-echo 
+echo "its done!."
+
