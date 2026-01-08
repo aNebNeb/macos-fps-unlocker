@@ -19,6 +19,24 @@ cat << "Roadblokks"
 For macos
 Roadblokks
 
+
+
+
+result=$(osascript -e 'display dialog "What would you like to do?" buttons {"unlock fps","revert changes","cancel"} default button "unlock fps"')
+
+if [[ "$result" == *"revert changes"* ]]; then
+
+rm -rf "/Applications/Roblox.app/Contents/MacOS/ClientSettings"
+
+  exit 0
+elif [[ "$result" == *"cancel"* ]]; then
+  echo "Cancelled."
+  exit 1
+fi
+
+echo "continuing..."
+
+
 if pgrep "RobloxPlayer" > /dev/null; then
     if [[ $(osascript -e 'display dialog "⚠️ Roblox must be closed before unlocking FPS!" buttons {"Force Stop Roblox","Cancel"} default button "Force Stop Roblox"') == *"Force Stop Roblox"* ]]; then
         # Second confirmation
