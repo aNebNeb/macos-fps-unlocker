@@ -60,9 +60,13 @@ mkdir /Applications/Roblox.app/Contents/MacOS/ClientSettings
 touch /Applications/Roblox.app/Contents/MacOS/ClientSettings/ClientAppSettings.json
 
 cat > /Applications/Roblox.app/Contents/MacOS/ClientSettings/ClientAppSettings.json <<'SUBSCRIBE'
-
-
- {"DFIntTaskSchedulerTargetFps":"100067","FFlagTaskSchedulerLimitTargetFpsTo2402":"False","DFIntNetworkPrediction":"120","DFIntServerTickRate":"60","FFlagDebugGraphicsPreferOpenGL":"True","FIntRenderShadowIntensity":"0","FIntRenderGrassHeightScaler":"0",
+{
+"DFIntTaskSchedulerTargetFps":"100067",
+"FFlagTaskSchedulerLimitTargetFpsTo2402":"False",
+"DFIntNetworkPrediction":"120","DFIntServerTickRate":"60",
+"FFlagDebugGraphicsPreferOpenGL":"True",
+"FIntRenderShadowIntensity":"0",
+"FIntRenderGrassHeightScaler":"0",
 "FFlagDisablePostFx": true,
 "FFlagDisableShadows": true,
 "FFlagDisableBloom": true,
@@ -75,8 +79,7 @@ cat > /Applications/Roblox.app/Contents/MacOS/ClientSettings/ClientAppSettings.j
 "DFIntPhysicsStepsPerFrame": 1,
 "DFIntGCJobFrequencyMs": 250,
 "FFlagLuaAppEnableLowMemoryMode": true,
-"DFIntConnectionMTUSize": $MTU,
-
+"DFIntConnectionMTUSize": 1436
 }
  
 SUBSCRIBE
