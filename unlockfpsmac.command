@@ -56,13 +56,15 @@ result=$(osascript -e 'display dialog "thanks for testing the beta version, chan
 
 if [[ "$result" == *"lowest(most fps)"* ]]; then
 mkdir /Applications/Roblox.app/Contents/MacOS/ClientSettings
+rm -rf touch /Applications/Roblox.app/Contents/MacOS/ClientSettings/ClientAppSettings.json
 touch /Applications/Roblox.app/Contents/MacOS/ClientSettings/ClientAppSettings.json
 
 cat > /Applications/Roblox.app/Contents/MacOS/ClientSettings/ClientAppSettings.json <<'SUBSCRIBE'
 {
 "DFIntTaskSchedulerTargetFps":"100067",
 "FFlagTaskSchedulerLimitTargetFpsTo2402":"False",
-"DFIntNetworkPrediction":"120","DFIntServerTickRate":"60",
+"DFIntNetworkPrediction":"120",
+"DFIntServerTickRate":"60",
 "FFlagDebugGraphicsPreferOpenGL":"True",
 "FIntRenderShadowIntensity":"0",
 "FIntRenderGrassHeightScaler":"0",
@@ -83,13 +85,24 @@ cat > /Applications/Roblox.app/Contents/MacOS/ClientSettings/ClientAppSettings.j
  
 SUBSCRIBE
 
+
   exit 0
+if [[ "$result" == *"default(medium)"* ]]; then
+cat > /Applications/Roblox.app/Contents/MacOS/ClientSettings/ClientAppSettings.json <<'HELP'
+{
+"DFIntTaskSchedulerTargetFps":"100067",
+"FFlagTaskSchedulerLimitTargetFpsTo2402":"False",
+"DFIntNetworkPrediction":"120",
+"DFIntServerTickRate":"60",
+"FFlagDebugGraphicsPreferOpenGL":"True"
+}
+HELP
+
 elif [[ "$result" == *"cancel"* ]]; then
   echo "Cancelled."
   exit 1
 fi
-
-
+fi
 
 # are you subscribed yet?
 
