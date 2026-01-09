@@ -34,7 +34,6 @@ elif [[ "$result" == *"cancel"* ]]; then
   exit 1
 fi
 
-echo "continuing..."
 
 
 if pgrep "RobloxPlayer" > /dev/null; then
@@ -51,8 +50,48 @@ if pgrep "RobloxPlayer" > /dev/null; then
     fi
 fi
 
-# actual script  
+# hmm  
+
+MTU=$(ifconfig en0 | awk '/mtu/{print $4}')
+result=$(osascript -e 'display dialog "thanks for testing the beta version, change quality: " buttons {"lowest(most fps)","default(medium)","cancel(runnin m3 ultra? lol)"} default button "default(medium)"')
+
+if [[ "$result" == *"lowest(most fps)"* ]]; then
+mkdir /Applications/Roblox.app/Contents/MacOS/ClientSettings
+touch /Applications/Roblox.app/Contents/MacOS/ClientSettings/ClientAppSettings.json
+
+cat > /Applications/Roblox.app/Contents/MacOS/ClientSettings/ClientAppSettings.json <<'SUBSCRIBE'
+
+
+ {"DFIntTaskSchedulerTargetFps":"100067","FFlagTaskSchedulerLimitTargetFpsTo2402":"False","DFIntNetworkPrediction":"120","DFIntServerTickRate":"60","FFlagDebugGraphicsPreferOpenGL":"True","FIntRenderShadowIntensity":"0","FIntRenderGrassHeightScaler":"0",
+"FFlagDisablePostFx": true,
+"FFlagDisableShadows": true,
+"FFlagDisableBloom": true,
+"FFlagDisableDepthOfField": true,
+"FFlagDisableGlobalShadows": true,
+"FFlagEnableReducedLatency": true,
+"FFlagFastGPULightCulling3": true,
+"FFlagRenderFixFog": true,
+"FFlagRenderOptimizedShadows": true,
+"DFIntPhysicsStepsPerFrame": 1,
+"DFIntGCJobFrequencyMs": 250,
+"FFlagLuaAppEnableLowMemoryMode": true,
+"DFIntConnectionMTUSize": $MTU,
+
+}
+ 
+SUBSCRIBE
+
+  exit 0
+elif [[ "$result" == *"cancel"* ]]; then
+  echo "Cancelled."
+  exit 1
+fi
+
+
+
 # are you subscribed yet?
+
+
 
 
 
@@ -151,13 +190,6 @@ cat > ~/Library/Roblox/GlobalBasicSettings_13.xml <<'SUSSY'
 	</Item>
 </roblox>
 SUSSY
-
-mkdir /Applications/Roblox.app/Contents/MacOS/ClientSettings
-
-touch /Applications/Roblox.app/Contents/MacOS/ClientSettings/ClientAppSettings.json
-
-echo '{"DFIntTaskSchedulerTargetFps":"100067","FFlagTaskSchedulerLimitTargetFpsTo2402":"False","DFIntNetworkPrediction":"120","DFIntServerTickRate":"60","FFlagDebugGraphicsPreferOpenGL":"True","FIntRenderShadowIntensity":"0","FIntRenderGrassHeightScaler":"0","FFlagDisablePostFx":"True"}
-' > /Applications/Roblox.app/Contents/MacOS/ClientSettings/ClientAppSettings.json
 
 
 
