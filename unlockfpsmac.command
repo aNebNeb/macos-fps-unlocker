@@ -52,7 +52,6 @@ fi
 
 # hmm  
 
-MTU=$(ifconfig en0 | awk '/mtu/{print $4}')
 result=$(osascript -e 'display dialog "thanks for testing the beta version, change quality: " buttons {"lowest(most fps)","default(medium)","cancel(runnin m3 ultra? lol)"} default button "default(medium)"')
 
 if [[ "$result" == *"lowest(most fps)"* ]]; then
