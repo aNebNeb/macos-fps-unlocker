@@ -1,165 +1,80 @@
 #!/bin/bash
-
-# shrek da goat
-
-echo "unlocking fps.."
-
-echo "how u feel rn:"
-
-cat << "Roadblokks"
-  __
- (`/\
- `=\/\ __...--~~~~~-._   _.-~~~~~--...__
-  `=\/\               \ /               \
-   `=\/   FPS          V     UNLOCKER    \
-   //_\___--~~~~~~-._  |  _.-~~~~~~--...__\
-  //_.~~~~----.....__\ | /_.~~~~----.....__\
- ===================\\|//====================
-
-For macos
-Roadblokks
+echo "man why do you even need this, vsync better trust"
 
 
-
-
-result=$(osascript -e 'display dialog "What would you like to do?" buttons {"unlock fps","revert changes","cancel"} default button "unlock fps"')
-
-if [[ "$result" == *"revert changes"* ]]; then
-
-rm -rf "/Applications/Roblox.app/Contents/MacOS/ClientSettings"
-
-  exit 0
-elif [[ "$result" == *"cancel"* ]]; then
-  echo "Cancelled."
-  exit 1
-fi
-
-echo "continuing..."
-
-
-if pgrep "RobloxPlayer" > /dev/null; then
-    if [[ $(osascript -e 'display dialog "⚠️ Roblox must be closed before unlocking FPS!" buttons {"Force Stop Roblox","Cancel"} default button "Force Stop Roblox"') == *"Force Stop Roblox"* ]]; then
-        # Second confirmation
-        if [[ $(osascript -e 'display dialog "❗ Are you sure you want to force stop Roblox? This cannot be undone!" buttons {"YESS!!","No, cancel"} default button "No, cancel"') == *"YESS!!"* ]]; then
-            pkill -9 RobloxPlayer
-            sleep 0.5 
-        else
-            exit 1
-        fi
-    else
-        exit 1
-    fi
-fi
-
-# actual script  
-# are you subscribed yet?
-
-
-
-cat > ~/Library/Roblox/GlobalBasicSettings_13.xml <<'SUSSY'
-<roblox xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.roblox.com/roblox.xsd" version="4">
-	<External>null</External>
-	<External>nil</External>
-	<Item class="UserGameSettings" referent="RBX470cd52d47034800aff94d5fba83bcb1">
-		<Properties>
-			<bool name="AllTutorialsDisabled">false</bool>
-			<bool name="BadgeVisible">true</bool>
-			<token name="CameraMode">0</token>
-			<bool name="CameraYInverted">false</bool>
-			<bool name="ChatTranslationEnabled">true</bool>
-			<bool name="ChatTranslationFTUXShown">true</bool>
-			<string name="ChatTranslationLocale">en_us</string>
-			<bool name="ChatTranslationToggleEnabled">false</bool>
-			<bool name="ChatVisible">false</bool>
-			<string name="CompletedTutorials"></string>
-			<bool name="ComputerCameraMovementChanged">false</bool>
-			<token name="ComputerCameraMovementMode">0</token>
-			<bool name="ComputerMovementChanged">false</bool>
-			<token name="ComputerMovementMode">0</token>
-			<token name="ControlMode">0</token>
-			<string name="DefaultCameraID"></string>
-			<int name="FramerateCap">100000067</int>
-			<bool name="Fullscreen">false</bool>
-			<float name="GamepadCameraSensitivity">0.839999974</float>
-			<token name="GraphicsOptimizationMode">1</token>
-			<int name="GraphicsQualityLevel">21</int>
-			<float name="HapticStrength">1</float>
-			<bool name="HasEverUsedVR">false</bool>
-			<float name="MasterVolume">1</float>
-			<float name="MasterVolumeStudio">1</float>
-			<bool name="MaxQualityEnabled">false</bool>
-			<bool name="MicroProfilerWebServerEnabled">false</bool>
-			<float name="MouseSensitivity">0.519999981</float>
-			<Vector2 name="MouseSensitivityFirstPerson">
-				<X>0.519999981</X>
-				<Y>0.519999981</Y>
-			</Vector2>
-			<Vector2 name="MouseSensitivityThirdPerson">
-				<X>0.519999981</X>
-				<Y>0.519999981</Y>
-			</Vector2>
-			<bool name="OnScreenProfilerEnabled">false</bool>
-			<float name="PartyVoiceVolume">1</float>
-			<token name="PeoplePageLayout">0</token>
-			<bool name="PerformanceStatsVisible">false</bool>
-			<float name="PlayerHeight">5.70000029</float>
-			<bool name="PlayerListVisible">true</bool>
-			<bool name="PlayerNamesEnabled">true</bool>
-			<token name="PreferredTextSize">1</token>
-			<float name="PreferredTransparency">1</float>
-			<int name="QualityResetLevel">0</int>
-			<int name="RCCProfilerRecordFrameRate">1</int>
-			<int name="RCCProfilerRecordTimeFrame">1</int>
-			<bool name="ReadAloud">false</bool>
-			<bool name="ReducedMotion">false</bool>
-			<token name="SavedQualityLevel">1</token>
-			<bool name="StartMaximized">true</bool>
-			<Vector2 name="StartScreenPosition">
-				<X>20</X>
-				<Y>20</Y>
-			</Vector2>
-			<Vector2 name="StartScreenSize">
-				<X>800</X>
-				<Y>600</Y>
-			</Vector2>
-			<bool name="TouchCameraMovementChanged">false</bool>
-			<token name="TouchCameraMovementMode">0</token>
-			<bool name="TouchMovementChanged">false</bool>
-			<token name="TouchMovementMode">0</token>
-			<bool name="UiNavigationKeyBindEnabled">true</bool>
-			<bool name="UsedCoreGuiIsVisibleToggle">false</bool>
-			<bool name="UsedCustomGuiIsVisibleToggle">false</bool>
-			<bool name="UsedHideHudShortcut">false</bool>
-			<token name="VRComfortSetting">1</token>
-			<bool name="VREnabled">true</bool>
-			<int name="VRRotationIntensity">1</int>
-			<token name="VRSafetyBubbleMode">0</token>
-			<bool name="VRSmoothRotationEnabled">false</bool>
-			<bool name="VRSmoothRotationEnabledCustomOption">false</bool>
-			<bool name="VRThirdPersonFollowCamEnabled">true</bool>
-			<bool name="VRThirdPersonFollowCamEnabledCustomOption">true</bool>
-			<bool name="VignetteEnabled">true</bool>
-			<bool name="VignetteEnabledCustomOption">true</bool>
-			<string name="gaID"></string>
-			<BinaryString name="AttributesSerialize"></BinaryString>
-			<SecurityCapabilities name="Capabilities">0</SecurityCapabilities>
-			<bool name="DefinesCapabilities">false</bool>
-			<string name="Name">GameSettings</string>
-			<int64 name="SourceAssetId">-1</int64>
-			<BinaryString name="Tags"></BinaryString>
-		</Properties>
-	</Item>
-</roblox>
-SUSSY
-
+type=$(osascript -e 'display dialog "in what waqy do you want to unlock fps?" buttons {"OpenGL (breaks visuals)","Virtual Display (MAX 240 FPS!)","cancel"} default button "Virtual Display (MAX 240 FPS!)"')
+if [[ "$type" == *"cancel"* ]]; then
+exit 0
+elif [[ "$type" == *"OpenGL (breaks visuals)"* ]]; then
+sed -i '' 's/<int name="FramerateCap">[0-9]\+<\/int>/<int name="FramerateCap">1000067<\/int>/g' ~/Library/Roblox/GlobalBasicSettings_13.xml
+sed -i '' 's/<int name="GraphicsQualityLevel">[0-9]\+<\/int>/<int name="GraphicsQualityLevel">1<\/int>/g' ~/Library/Roblox/GlobalBasicSettings_13.xml
+if [ -e "/Applications/Roblox.app/Contents/MacOS/ClientSettings/ClientAppSettings.json" ]; then
+cp /Applications/Roblox.app/Contents/MacOS/ClientSettings/ClientAppSettings.json /Applications/Roblox.app/Contents/MacOS/ClientSettings/ClientAppSettings.json.bak
+osascript -e 'display alert "Warning" message "Copied ur old fflags to /Applications/Roblox.app/Contents/MacOS/ClientSettings/ClientAppSettings.json.bak" as warning'
+else
 mkdir /Applications/Roblox.app/Contents/MacOS/ClientSettings
 
 touch /Applications/Roblox.app/Contents/MacOS/ClientSettings/ClientAppSettings.json
-
+fi
 echo '{"DFIntTaskSchedulerTargetFps":"100067","FFlagTaskSchedulerLimitTargetFpsTo2402":"False","DFIntNetworkPrediction":"120","DFIntServerTickRate":"60","FFlagDebugGraphicsPreferOpenGL":"True","FIntRenderShadowIntensity":"0","FIntRenderGrassHeightScaler":"0","FFlagDisablePostFx":"True"}
 ' > /Applications/Roblox.app/Contents/MacOS/ClientSettings/ClientAppSettings.json
+#r u subsribed yet
+exit 1
+fi
 
+sed -i '' 's/<int name="FramerateCap">[0-9]\+<\/int>/<int name="FramerateCap">240<\/int>/g' ~/Library/Roblox/GlobalBasicSettings_13.xml
 
+if [ ! -d "/Applications/Roblox-fps-unlocked.app" ]; then
+  
+echo "Creating Roblox FPS Unlocked app..."
 
-echo "its done!."
+  mkdir -p "/Applications/Roblox-fps-unlocked.app/Contents/MacOS"
 
+  # Info.plist
+  cat > "/Applications/Roblox-fps-unlocked.app/Contents/Info.plist" <<EOF
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>CFBundleName</key>
+  <string>Roblox FPS Unlocked</string>
+  <key>CFBundleIdentifier</key>
+  <string>com.local.robloxfpsunlocked</string>
+  <key>CFBundleVersion</key>
+  <string>1.0</string>
+  <key>CFBundleExecutable</key>
+  <string>run.sh</string>
+  <key>CFBundlePackageType</key>
+  <string>APPL</string>
+</dict>
+</plist>
+EOF
+
+  # credits to appleblox, precompiled binary from me
+  curl -L -o "/Applications/Roblox-fps-unlocked.app/Contents/MacOS/virtualdisplay240" https://raw.githubusercontent.com/aNebNeb/macos-fps-unlocker/refs/heads/main/virtualdisplay240
+
+  chmod +x "/Applications/Roblox-fps-unlocked.app/Contents/MacOS/virtualdisplay240"
+  xattr -c "/Applications/Roblox-fps-unlocked.app/Contents/MacOS/virtualdisplay240"
+
+  # Main launcher (minimal, no polling)
+  cat > "/Applications/Roblox-fps-unlocked.app/Contents/MacOS/run.sh" <<'EOF'
+#!/bin/bash
+
+/Applications/Roblox-fps-unlocked.app/Contents/MacOS/virtualdisplay240 &
+VD_PID=$!
+
+trap "kill $VD_PID 2>/dev/null" EXIT
+
+/Applications/Roblox.app/Contents/MacOS/RobloxPlayer &
+RBX_PID=$!
+
+wait $RBX_PID
+EOF
+
+  chmod +x "/Applications/Roblox-fps-unlocked.app/Contents/MacOS/run.sh"
+  xattr -c "/Applications/Roblox-fps-unlocked.app/Contents/MacOS/run.sh"
+
+  echo "Done: /Applications/Roblox-fps-unlocked.app"
+else
+  echo "App already exists."
+fi
