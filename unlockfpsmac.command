@@ -2,10 +2,14 @@
 echo "man why do you even need this, vsync better trust"
 
 
-type=$(osascript -e 'display dialog "in what waqy do you want to unlock fps?" buttons {"OpenGL (breaks visuals)","Virtual Display (MAX 240 FPS!)","cancel"} default button "Virtual Display (MAX 240 FPS!)"')
+type=$(osascript -e 'display dialog "in what way do you want to unlock fps?" buttons {"OpenGL (breaks visuals)","revert changes","Virtual Display (MAX 240 FPS!)","cancel"} default button "Virtual Display (MAX 240 FPS!)"')
 if [[ "$type" == *"cancel"* ]]; then
 exit 0
-elif [[ "$type" == *"OpenGL (breaks visuals)"* ]]; then
+fi
+if [[ "$type" == *"revert changes"* ]]; then
+mv /Applications/Roblox.app/Contents/MacOS/ClientSettings/ClientAppSettings.json /Applications/Roblox.app/Contents/MacOS/ClientSettings/ClientAppSettings.json.old
+fi
+if [[ "$type" == *"OpenGL (breaks visuals)"* ]]; then
 sed -i '' 's/<int name="FramerateCap">[0-9]\+<\/int>/<int name="FramerateCap">1000067<\/int>/g' ~/Library/Roblox/GlobalBasicSettings_13.xml
 sed -i '' 's/<int name="GraphicsQualityLevel">[0-9]\+<\/int>/<int name="GraphicsQualityLevel">1<\/int>/g' ~/Library/Roblox/GlobalBasicSettings_13.xml
 if [ -e "/Applications/Roblox.app/Contents/MacOS/ClientSettings/ClientAppSettings.json" ]; then
