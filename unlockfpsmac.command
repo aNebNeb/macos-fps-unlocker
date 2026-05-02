@@ -5,7 +5,7 @@ echo "man why do you even need this, vsync better trust"
 type=$(osascript -e 'display dialog "in what way do you want to unlock fps?" buttons {"OpenGL (breaks visuals)","Virtual Display (MAX 240 FPS!)","cancel or revert"} default button "Virtual Display (MAX 240 FPS!)"')
 if [[ "$type" == *"cancel or revert"* ]]; then
 sus=$(osascript -e 'display dialog "in what way do you want to unlock fps?" buttons {"revert changes", cancel} default button "Virtual Display (MAX 240 FPS!)"')
-if [[ "$type" == *"revert changes"* ]]; then
+if [[ "$sus" == *"revert changes"* ]]; then
 mv /Applications/Roblox.app/Contents/MacOS/ClientSettings/ClientAppSettings.json /Applications/Roblox.app/Contents/MacOS/ClientSettings/ClientAppSettings.json.old
 elif
 exit 0
