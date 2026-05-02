@@ -8,7 +8,7 @@ sus=$(osascript -e 'display dialog "in what way do you want to unlock fps?" butt
 fi
 if [[ "$sus" == *"revert changes"* ]]; then
 mv /Applications/Roblox.app/Contents/MacOS/ClientSettings/ClientAppSettings.json /Applications/Roblox.app/Contents/MacOS/ClientSettings/ClientAppSettings.json.old
-elif
+elif [[ "$sus" == *"cancel"* ]]; then
 exit 0
 fi
 
