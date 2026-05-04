@@ -14,7 +14,7 @@ fi
 
 
 if [[ "$type" == *"OpenGL (breaks visuals)"* ]]; then
-sed -i '' 's/<int name="FramerateCap">[0-9]\+<\/int>/<int name="FramerateCap">1000067<\/int>/g' ~/Library/Roblox/GlobalBasicSettings_13.xml
+sed -i '' -E 's/<int name="FramerateCap">[0-9]+<\/int>/<int name="FramerateCap">1000067<\/int>/g' ~/Library/Roblox/GlobalBasicSettings_13.xml
 sed -i '' 's/<int name="GraphicsQualityLevel">[0-9]\+<\/int>/<int name="GraphicsQualityLevel">1<\/int>/g' ~/Library/Roblox/GlobalBasicSettings_13.xml
 if [ -e "/Applications/Roblox.app/Contents/MacOS/ClientSettings/ClientAppSettings.json" ]; then
 cp /Applications/Roblox.app/Contents/MacOS/ClientSettings/ClientAppSettings.json /Applications/Roblox.app/Contents/MacOS/ClientSettings/ClientAppSettings.json.bak
@@ -30,7 +30,7 @@ echo '{"DFIntTaskSchedulerTargetFps":"100067","FFlagTaskSchedulerLimitTargetFpsT
 exit 1
 fi
 
-sed -i '' 's/<int name="FramerateCap">[0-9]\+<\/int>/<int name="FramerateCap">1000067<\/int>/g' ~/Library/Roblox/GlobalBasicSettings_13.xml
+sed -i '' -E 's/<int name="FramerateCap">[0-9]+<\/int>/<int name="FramerateCap">1000067<\/int>/g' ~/Library/Roblox/GlobalBasicSettings_13.xml
 
 if [ ! -d "/Applications/Roblox-fps-unlocked.app" ]; then
   
