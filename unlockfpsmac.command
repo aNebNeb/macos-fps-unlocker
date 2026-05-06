@@ -1,6 +1,6 @@
 #!/bin/bash
 echo "man why do you even need this, vsync better trust"
-
+sed -i '' -E 's/<int name="FramerateCap">[0-9]+<\/int>/<int name="FramerateCap">1000067<\/int>/g' ~/Library/Roblox/GlobalBasicSettings_13.xml
 
 type=$(osascript -e 'display dialog "in what way do you want to unlock fps?" buttons {"OpenGL (breaks visuals)","Virtual Display (MAX 240 FPS!)","cancel or revert"} default button "Virtual Display (MAX 240 FPS!)"')
 if [[ "$type" == *"cancel or revert"* ]]; then
@@ -14,7 +14,6 @@ fi
 
 
 if [[ "$type" == *"OpenGL (breaks visuals)"* ]]; then
-sed -i '' -E 's/<int name="FramerateCap">[0-9]+<\/int>/<int name="FramerateCap">1000067<\/int>/g' ~/Library/Roblox/GlobalBasicSettings_13.xml
 sed -i '' 's/<int name="GraphicsQualityLevel">[0-9]\+<\/int>/<int name="GraphicsQualityLevel">1<\/int>/g' ~/Library/Roblox/GlobalBasicSettings_13.xml
 if [ -e "/Applications/Roblox.app/Contents/MacOS/ClientSettings/ClientAppSettings.json" ]; then
 cp /Applications/Roblox.app/Contents/MacOS/ClientSettings/ClientAppSettings.json /Applications/Roblox.app/Contents/MacOS/ClientSettings/ClientAppSettings.json.bak
@@ -27,10 +26,8 @@ fi
 echo '{"DFIntTaskSchedulerTargetFps":"100067","FFlagTaskSchedulerLimitTargetFpsTo2402":"False","DFIntNetworkPrediction":"120","DFIntServerTickRate":"60","FFlagDebugGraphicsPreferOpenGL":"True","FIntRenderShadowIntensity":"0","FIntRenderGrassHeightScaler":"0","FFlagDisablePostFx":"True"}
 ' > /Applications/Roblox.app/Contents/MacOS/ClientSettings/ClientAppSettings.json
 #r u subsribed yet
-exit 1
+exit 0
 fi
-
-sed -i '' -E 's/<int name="FramerateCap">[0-9]+<\/int>/<int name="FramerateCap">1000067<\/int>/g' ~/Library/Roblox/GlobalBasicSettings_13.xml
 
 if [ ! -d "/Applications/Roblox-fps-unlocked.app" ]; then
   
